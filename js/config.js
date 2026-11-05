@@ -1,16 +1,16 @@
 /* =========================================================================
-   CROWNLAND SAFARIS TOUR — SITE CONFIGURATION
+   CROWNLAND AFRICAN SAFARIS — SITE CONFIGURATION
    Edit this file to change contact details, currency rates and integrations.
    ========================================================================= */
 window.CROWNLAND_CONFIG = {
-  brand: "Crownland Safaris Tour",
+  brand: "Crownland African Safaris",
   shortBrand: "Crownland",
   tagline: "Royal journeys through wild Africa",
 
   // ---- CONTACT DETAILS (REPLACE WITH YOUR REAL DETAILS) -----------------
-  phonePrimary: "+254 700 000 000",
-  phoneSecondary: "+254 711 000 000",
-  whatsapp: "254700000000",            // international format, digits only
+  phonePrimary: "+254 115 905626",
+  phoneSecondary: "",                  // optional second number (leave empty to hide)
+  whatsapp: "254115905626",            // international format, digits only
   email: "info@crownlandsafaris.com",
   address: "Nairobi, Kenya",
   officeHours: "Mon – Sat · 8:00 – 18:00 EAT",

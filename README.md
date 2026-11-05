@@ -1,6 +1,6 @@
-# Crownland Safaris Tour — Website
+# Crownland African Safaris — Website
 
-A fast, fully interactive safari website for **Crownland Safaris Tour**: private Kenya, Tanzania and Uganda safaris.
+A fast, fully interactive safari website for **Crownland African Safaris**: private Kenya, Tanzania and Uganda safaris.
 It is a static site (plain HTML/CSS/JavaScript) with no build step and no server code, so you can host it almost anywhere.
 
 ## Features

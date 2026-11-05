@@ -1,5 +1,5 @@
-/* Crownland Safaris Tour — offline-capable service worker */
-const CACHE = "crownland-v1";
+/* Crownland African Safaris — offline-capable service worker */
+const CACHE = "crownland-v2";
 const CORE = [
   "./", "index.html", "css/styles.css", "css/leaflet.css", "js/config.js", "js/data.js", "js/app.js",
   "assets/favicon.svg", "assets/img/hero-jeep.jpg", "manifest.webmanifest"

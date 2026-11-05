@@ -1,5 +1,5 @@
 /* =========================================================================
-   CROWNLAND SAFARIS TOUR — APPLICATION
+   CROWNLAND AFRICAN SAFARIS — APPLICATION
    Vanilla JS single-page app: router, pricing engine, maps, trip builder,
    quiz, comparison, wishlist, enquiry wizard, concierge chat and more.
    ========================================================================= */
@@ -132,12 +132,13 @@
   /* ---------------- Config binding ---------------- */
   function bindConfig() {
     $$("[data-cfg-text]").forEach(el => { el.textContent = CFG[el.dataset.cfgText]; });
+    $$("[data-cfg-show]").forEach(el => { if (!CFG[el.dataset.cfgShow]) el.hidden = true; });
     $$("[data-cfg-href]").forEach(el => {
       const k = el.dataset.cfgHref;
       if (k === "tel") el.href = "tel:" + CFG.phonePrimary.replace(/\s/g, "");
       if (k === "tel2") el.href = "tel:" + CFG.phoneSecondary.replace(/\s/g, "");
       if (k === "mailto") el.href = "mailto:" + CFG.email;
-      if (k === "whatsapp") el.href = waLink("Hello Crownland Safaris! I'd like help planning a safari.");
+      if (k === "whatsapp") el.href = waLink("Hello Crownland African Safaris! I'd like help planning a safari.");
     });
     const so = CFG.social;
     $("#socials").innerHTML = [["facebook", "fb"], ["instagram", "ig"], ["youtube", "yt"], ["tiktok", "tt"]]
@@ -166,7 +167,7 @@
 
   /* ---------------- Router ---------------- */
   let currentView = null;
-  const titles = { home: "Crownland Safaris Tour — Private Kenya, Tanzania & Uganda Safaris", tours: "Safaris", builder: "Trip Builder", explore: "Explore & Migration", "travel-info": "Travel Info", about: "About", contact: "Contact" };
+  const titles = { home: "Crownland African Safaris — Private Kenya, Tanzania & Uganda Safaris", tours: "Safaris", builder: "Trip Builder", explore: "Explore & Migration", "travel-info": "Travel Info", about: "About", contact: "Contact" };
   function parseHash() {
     const h = location.hash.replace(/^#\/?/, "");
     const [path, qs] = h.split("?");
@@ -185,7 +186,7 @@
     openMobile(false);
     currentView = view;
     ({ home: initHome, tours: () => initTours(r.q), tour: () => renderTour(r.id), builder: () => initBuilder(r.q), explore: initExplore, "travel-info": () => initInfo(r.q), contact: () => initContact(r.q) }[view] || (() => {}))();
-    document.title = view === "tour" ? `${tourById(r.id).title} | Crownland Safaris Tour` : view === "home" ? titles.home : `${titles[view]} | Crownland Safaris Tour`;
+    document.title = view === "tour" ? `${tourById(r.id).title} | Crownland African Safaris` : view === "home" ? titles.home : `${titles[view]} | Crownland African Safaris`;
     if (changed) { const de = document.documentElement; de.style.scrollBehavior = "auto"; window.scrollTo(0, 0); de.style.scrollBehavior = ""; }
     setTimeout(observeReveals, 50);
   }
@@ -568,7 +569,7 @@
       ${s.kids ? `<div class="quote-line"><span>${s.kids} child${s.kids > 1 ? "ren" : ""} × ${money(q.kidPP)}</span><span>${money(q.kidPP * s.kids)}</span></div>` : ""}
       <div class="quote-total"><span class="muted">Estimated total</span><strong>${money(q.total)}</strong></div>
       <div class="quote-line muted" style="font-size:.8rem"><span>Deposit to confirm (${CFG.depositPercent}%)</span><span>${money(q.total * CFG.depositPercent / 100)}</span></div>`;
-    $("#qWa").href = waLink(`Hello Crownland Safaris! I'm interested in "${t.title}" starting ${s.date || "TBC"} for ${s.adults} adult(s)${s.kids ? " and " + s.kids + " child(ren)" : ""}. Estimated ${money(q.total, "USD")}. Please confirm availability.`);
+    $("#qWa").href = waLink(`Hello Crownland African Safaris! I'm interested in "${t.title}" starting ${s.date || "TBC"} for ${s.adults} adult(s)${s.kids ? " and " + s.kids + " child(ren)" : ""}. Estimated ${money(q.total, "USD")}. Please confirm availability.`);
   }
   function rerenderQuotes() { if (currentView === "tour") updateQuote(); if (currentView === "builder") renderBuilder(); renderTourList && currentView === "tours" && renderTourList(); }
 
@@ -791,7 +792,7 @@
     out.classList.add("show");
     $("#ptIcs").addEventListener("click", () => {
       const ymd = x => x.toISOString().slice(0, 10).replace(/-/g, "");
-      const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Crownland Safaris Tour//Malaria planner//EN", "BEGIN:VEVENT",
+      const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Crownland African Safaris//Malaria planner//EN", "BEGIN:VEVENT",
         `UID:${Date.now()}@crownlandsafaris`, `DTSTAMP:${ymd(new Date())}T000000Z`, `DTSTART:${ymd(start)}T080000`, `DTEND:${ymd(start)}T081500`,
         `RRULE:FREQ=${d.every === 7 ? "WEEKLY" : "DAILY"};COUNT=${doses.length}`, `SUMMARY:Take ${d.name} (malaria prevention)`,
         `DESCRIPTION:Last dose ${fmt(end)}. ${d.tips[0]}`, "BEGIN:VALARM", "TRIGGER:PT0M", "ACTION:DISPLAY", "DESCRIPTION:Malaria tablet", "END:VALARM", "END:VEVENT", "END:VCALENDAR"].join("\r\n");
@@ -824,13 +825,13 @@
       openModal(`<div class="modal-head"><span class="eyebrow">Secure payment</span><h2 id="modalTitle">Pay your deposit</h2></div><div class="modal-body">
         <p>Once your safari is confirmed, your consultant sends a secure payment link with your invoice. Payments are processed by a PCI-compliant provider — we never see your card details.</p>
         <div class="pay-badges"><span>VISA</span><span>Mastercard</span><span>M-PESA</span><span>Bank transfer</span><span>PayPal</span></div>
-        <a class="btn btn-whatsapp" style="margin-top:20px" href="${waLink("Hello Crownland Safaris, I'd like to pay my safari deposit. My booking name is: ")}" target="_blank" rel="noopener">${icon("whatsapp")} Request my payment link</a></div>`);
+        <a class="btn btn-whatsapp" style="margin-top:20px" href="${waLink("Hello Crownland African Safaris, I'd like to pay my safari deposit. My booking name is: ")}" target="_blank" rel="noopener">${icon("whatsapp")} Request my payment link</a></div>`);
     });
   }
 
   /* ---------------- Enquiry submission ---------------- */
   function enquiryText(d) {
-    return [`New safari enquiry — Crownland Safaris Tour`, `Tour: ${d.tour}`, d.date && `Travel date: ${d.date}`, d.travellers && `Travellers: ${d.travellers}`,
+    return [`New safari enquiry — Crownland African Safaris`, `Tour: ${d.tour}`, d.date && `Travel date: ${d.date}`, d.travellers && `Travellers: ${d.travellers}`,
       d.estimate && `Estimate shown: ${d.estimate}`, `Name: ${d.name}`, `Email: ${d.email}`, d.phone && `Phone: ${d.phone}`, d.country && `Country: ${d.country}`, d.message && `Message: ${d.message}`].filter(Boolean).join("\n");
   }
   function submitEnquiry(d, onDone) {
@@ -991,7 +992,7 @@
   function renderSaved() {
     const list = [...saved].map(tourById).filter(Boolean);
     $("#savedList").innerHTML = list.length ? `<div class="mini-tours">${list.map(t => `<div class="mini-tour"><img src="${IMG + t.img}" alt=""><a href="#/tour/${t.id}" style="flex:1"><strong>${esc(t.title)}</strong><span>${daysLabel(t)} · from ${money(fromPrice(t))}</span></a><button class="icon-btn" data-save="${t.id}" aria-label="Remove">${icon("x")}</button></div>`).join("")}</div>
-      <a class="btn btn-whatsapp btn-block" style="margin-top:18px" target="_blank" rel="noopener" href="${waLink("Hello Crownland Safaris! I'm interested in these safaris:\n" + list.map(t => "• " + t.title).join("\n"))}">${icon("whatsapp")} Ask about these on WhatsApp</a>`
+      <a class="btn btn-whatsapp btn-block" style="margin-top:18px" target="_blank" rel="noopener" href="${waLink("Hello Crownland African Safaris! I'm interested in these safaris:\n" + list.map(t => "• " + t.title).join("\n"))}">${icon("whatsapp")} Ask about these on WhatsApp</a>`
       : `<div class="empty-state">${icon("heart")}<p>Tap the heart on any safari to save it here.</p><a href="#/tours" class="btn btn-gold btn-sm">Browse safaris</a></div>`;
   }
   function openDrawer(open) { $("#savedDrawer").classList.toggle("open", open); $("#savedDrawer").setAttribute("aria-hidden", !open); if (open) renderSaved(); }

@@ -1,5 +1,5 @@
 /* =========================================================================
-   CROWNLAND SAFARIS TOUR — CONTENT DATA
+   CROWNLAND AFRICAN SAFARIS — CONTENT DATA
    Tours, destinations, wildlife, FAQs. Prices are USD per person.
    ========================================================================= */
 (function () {
