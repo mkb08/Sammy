@@ -11,7 +11,7 @@ window.CROWNLAND_CONFIG = {
   phonePrimary: "+254 115 905626",
   phoneSecondary: "",                  // optional second number (leave empty to hide)
   whatsapp: "254115905626",            // international format, digits only
-  email: "info@crownlandsafaris.com",
+  email: "crownlandafricansafaris@gmail.com",
   address: "Nairobi, Kenya",
   officeHours: "Mon – Sat · 8:00 – 18:00 EAT",
   social: {
