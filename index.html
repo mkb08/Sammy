@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Crownland Safaris Tour</title>
+  <meta name="description" content="Crownland Safaris Tour — private Kenya, Tanzania and Uganda safaris. Masai Mara migration, Amboseli, Serengeti, Ngorongoro and gorilla trekking. Build your own safari and get an instant quote.">
+  <meta name="theme-color" content="#1e3a2b">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Crownland Safaris Tour — Royal journeys through wild Africa">
+  <meta property="og:description" content="Private safaris in Kenya, Tanzania & Uganda. Instant quotes, trip builder and live Great Migration tracker.">
+  <meta property="og:image" content="assets/img/hero-jeep.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preload" as="image" href="assets/img/hero-jeep.jpg">
+  <script>
+    // apply saved theme before paint
+    try { var t = localStorage.getItem("cl-theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "Crownland Safaris Tour",
+    "description": "Private safaris in Kenya, Tanzania and Uganda.",
+    "areaServed": ["Kenya", "Tanzania", "Uganda"],
+    "address": { "@type": "PostalAddress", "addressLocality": "Nairobi", "addressCountry": "KE" },
+    "priceRange": "$65 - $7,300"
+  }
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#app">Skip to content</a>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ============ ICON SPRITE ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h12"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.7 17.8L0 24l6.3-1.7a11.8 11.8 0 0 0 5.7 1.4A11.8 11.8 0 0 0 20.4 3.6z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></symbol>
+    <symbol id="i-crown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 18h18l-1.5-10-4.5 4-3-7-3 7-4.5-4z"/><path d="M4 21h16"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-bug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="8" y="6" width="8" height="14" rx="4"/><path d="M19 7l-3 2M5 7l3 2M19 19l-3-2M5 19l3-2M20 13h-4M4 13h4M10 4l1 2M14 4l-1 2"/></symbol>
+    <symbol id="i-pill" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m10.5 20.5 10-10a4.9 4.9 0 0 0-7-7l-10 10a4.9 4.9 0 0 0 7 7zM8.5 8.5l7 7"/></symbol>
+    <symbol id="i-syringe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4M17 7l3-3M19 9 8.7 19.3a2.4 2.4 0 0 1-3.4 0l-.6-.6a2.4 2.4 0 0 1 0-3.4L15 5M9 11l4 4M5 19l-3 3M14 4l6 6"/></symbol>
+    <symbol id="i-thermo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0z"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-5l-2-5H7l-2 5zM5 12h14M3 17h2M19 17h2"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/><path d="M9 7V4h6v3"/></symbol>
+    <symbol id="i-binoc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="16" r="4"/><circle cx="18" cy="16" r="4"/><path d="M10 16h4M4 12l2-8h3l1 8M20 12l-2-8h-3l-1 8"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.4 5.1-6"/></symbol>
+    <symbol id="i-tent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 21 14 3M20.5 21 10 3M15.5 21 12 15l-3.5 6M2 21h20"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m1 6 7-4 8 4 7-4v16l-7 4-8-4-7 4zM8 2v16M16 6v16"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.5V19l4 2v-8.5z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></symbol>
+    <symbol id="i-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
+    <symbol id="i-compare" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M8 21H3v-5M21 3l-7 7M3 21l7-7"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9zM19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></symbol>
+    <symbol id="i-yt" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1z"/></symbol>
+    <symbol id="i-tt" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9a7.4 7.4 0 0 0 4.3 1.4V7.3a4.3 4.3 0 0 1-3.2-1.5z"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-links">
+      <a href="#" data-cfg-href="tel" data-cfg="phonePrimary"><svg><use href="#i-phone"/></svg><span data-cfg-text="phonePrimary"></span></a>
+      <a href="#" data-cfg-href="mailto" class="hide-sm"><svg><use href="#i-mail"/></svg><span data-cfg-text="email"></span></a>
+      <span class="hide-sm"><svg><use href="#i-clock"/></svg><span data-cfg-text="officeHours"></span></span>
+    </div>
+    <div class="topbar-links">
+      <label class="sr-only" for="currencySelect">Currency</label>
+      <select id="currencySelect" aria-label="Currency"></select>
+      <a href="#/contact" class="hide-sm">Pay deposit online</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="#/" class="logo" aria-label="Crownland Safaris Tour — home">
+      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8bf62"/><stop offset="1" stop-color="#a8761f"/></linearGradient></defs>
+        <circle cx="32" cy="32" r="30" fill="#1e3a2b"/>
+        <circle cx="32" cy="38" r="13" fill="url(#lg)" opacity=".9"/>
+        <path d="M14 45h36" stroke="#0f1a12" stroke-width="3"/>
+        <path d="M18 45c3-6 6-7 10-7M28 38c0-3 2-5 6-5s7 1 9 3M24 38h18" stroke="#0f1a12" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <path d="M33 38v7" stroke="#0f1a12" stroke-width="2.2"/>
+        <path d="M19 22l5 4 4-8 4 7 4-7 4 8 5-4-2 9H21z" fill="url(#lg)"/>
+      </svg>
+      <span class="logo-text"><strong>Crownland</strong><small>Safaris Tour</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <ul>
+        <li><a class="nav-link" href="#/" data-nav="home">Home</a></li>
+        <li class="has-mega">
+          <a class="nav-link" href="#/tours" data-nav="tours" aria-haspopup="true">Safaris <svg><use href="#i-down"/></svg></a>
+          <div class="mega" id="megaMenu"></div>
+        </li>
+        <li><a class="nav-link" href="#/builder" data-nav="builder">Trip Builder</a></li>
+        <li><a class="nav-link" href="#/explore" data-nav="explore">Explore &amp; Migration</a></li>
+        <li><a class="nav-link" href="#/travel-info" data-nav="travel-info">Travel Info</a></li>
+        <li><a class="nav-link" href="#/about" data-nav="about">About</a></li>
+        <li><a class="nav-link" href="#/contact" data-nav="contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode"><svg><use href="#i-moon"/></svg></button>
+      <button class="icon-btn saved-btn" id="savedBtn" aria-label="Saved safaris"><svg><use href="#i-heart"/></svg><span class="badge-count" id="savedCount" data-n="0"></span></button>
+      <button class="btn btn-gold btn-sm hide-xs" data-open-quiz>Find my safari</button>
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open menu"><svg><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <div class="scrim" data-close-mobile></div>
+  <nav class="panel" aria-label="Mobile">
+    <button class="icon-btn" data-close-mobile aria-label="Close menu" style="align-self:flex-end"><svg><use href="#i-x"/></svg></button>
+    <a href="#/">Home</a>
+    <a href="#/tours">All Safaris</a>
+    <div id="mobileCats"></div>
+    <a href="#/builder">Trip Builder</a>
+    <a href="#/explore">Explore &amp; Migration</a>
+    <a href="#/travel-info">Travel Info</a>
+    <a href="#/about">About Us</a>
+    <a href="#/contact">Contact</a>
+    <button class="btn btn-gold" data-open-quiz style="margin-top:18px">Find my perfect safari</button>
+  </nav>
+</div>
+
+<main id="app">
+
+<!-- ================= HOME ================= -->
+<section class="view" data-view="home">
+  <div class="hero">
+    <div class="hero-slides" id="heroSlides"></div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="eyebrow" style="color:var(--gold-2)">Private safaris · Kenya · Tanzania · Uganda</span>
+        <h1>Wake up to <span class="hero-word" id="heroWord">lions</span><br>on a safari fit for royalty</h1>
+        <p class="lead">Private 4x4 safaris led by expert Kenyan guides — from the thundering Great Migration to a silent hour with mountain gorillas.</p>
+        <div class="hero-ctas">
+          <a href="#/tours" class="btn btn-gold">Explore safaris <svg><use href="#i-arrow"/></svg></a>
+          <a href="#/builder" class="btn btn-light"><svg><use href="#i-sparkle"/></svg> Build my own trip</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-dots" id="heroDots"></div>
+  </div>
+
+  <div class="container">
+    <form class="search-widget" id="searchWidget" role="search">
+      <div class="sw-field">
+        <label for="swDest">Destination</label>
+        <select id="swDest">
+          <option value="">Anywhere</option>
+          <option value="kenya">Kenya</option>
+          <option value="kenya-tz">Kenya &amp; Tanzania</option>
+          <option value="uganda">Uganda (gorillas)</option>
+          <option value="day">Day trips</option>
+        </select>
+      </div>
+      <div class="sw-field">
+        <label for="swDur">Duration</label>
+        <select id="swDur">
+          <option value="">Any length</option>
+          <option value="0-1">Day trip</option>
+          <option value="2-5">2 – 5 days</option>
+          <option value="6-7">6 – 7 days</option>
+          <option value="8-30">8+ days</option>
+        </select>
+      </div>
+      <div class="sw-field">
+        <label for="swBudget">Budget (pp)</label>
+        <select id="swBudget">
+          <option value="">Any budget</option>
+          <option value="2000">Under $2,000</option>
+          <option value="3500">Under $3,500</option>
+          <option value="5000">Under $5,000</option>
+        </select>
+      </div>
+      <div class="sw-field">
+        <label for="swInterest">I want to see</label>
+        <select id="swInterest">
+          <option value="">Everything</option>
+          <option value="migration">The Great Migration</option>
+          <option value="bigfive">The Big Five</option>
+          <option value="gorillas">Mountain gorillas</option>
+          <option value="kilimanjaro">Kilimanjaro views</option>
+          <option value="beach">Bush &amp; beach</option>
+          <option value="rhino">Rhinos</option>
+        </select>
+      </div>
+      <button class="btn btn-gold" type="submit"><svg><use href="#i-search"/></svg> Search</button>
+    </form>
+
+    <div class="stats" id="stats">
+      <div class="stat"><strong data-count="27">0</strong><span>Signature itineraries</span></div>
+      <div class="stat"><strong data-count="23">0</strong><span>Parks &amp; reserves</span></div>
+      <div class="stat"><strong data-count="3">0</strong><span>Countries</span></div>
+      <div class="stat"><strong data-count="100" data-suffix="%">0</strong><span>Private, tailor-made trips</span></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow">Choose your adventure</span><h2>Safari collections</h2></div>
+        <p>From short Masai Mara escapes to two-country epics and gorilla treks, every journey is private and fully customisable.</p>
+      </div>
+      <div class="cat-grid" id="catGrid"></div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow">Most loved</span><h2>Featured safaris</h2></div>
+        <div class="tabs" id="featuredTabs" role="tablist"></div>
+      </div>
+      <div class="tour-grid" id="featuredGrid"></div>
+      <div style="text-align:center;margin-top:40px"><a href="#/tours" class="btn btn-dark">View all safaris <svg><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <img src="assets/img/giraffe-sunset.jpg" alt="" loading="lazy">
+        <span class="eyebrow" style="color:var(--gold-2)">60-second safari match</span>
+        <h2>Not sure where to start? Let us match you with your perfect safari.</h2>
+        <p>Answer five quick questions about who you're travelling with, what you dream of seeing and your budget — we'll rank every safari for you.</p>
+        <button class="btn btn-gold" data-open-quiz><svg><use href="#i-sparkle"/></svg> Take the safari quiz</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container">
+      <div class="migration-ui">
+        <div class="reveal">
+          <span class="eyebrow">Live migration tracker</span>
+          <h2>Follow 1.5 million wildebeest, month by month</h2>
+          <p class="muted">Drag the slider or press play to watch the herds circle between Tanzania's Serengeti and Kenya's Masai Mara — then pick the safari that puts you in the right place at the right time.</p>
+          <div class="month-slider">
+            <input type="range" min="0" max="11" value="7" id="homeMigRange" aria-label="Month">
+            <div class="month-ticks" id="homeMigTicks"></div>
+          </div>
+          <div class="mig-card" id="homeMigCard"></div>
+          <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+            <button class="btn btn-light btn-sm play-btn" id="homeMigPlay"><svg><use href="#i-play"/></svg> Play year</button>
+            <a href="#/explore" class="btn btn-gold btn-sm">Open full map <svg><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+        <div class="mig-map reveal" id="homeMigMap"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow">The Crownland standard</span><h2>Why travel with us</h2></div>
+        <p>A royal welcome, honest prices and safaris built entirely around you.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature reveal"><div class="ico"><svg><use href="#i-car"/></svg></div><h3>Private 4x4 Land Cruisers</h3><p>Pop-up roofs, window seats for everyone, charging points and cool-box drinks. Never shared with strangers.</p></div>
+        <div class="feature reveal reveal-delay-1"><div class="ico"><svg><use href="#i-binoc"/></svg></div><h3>Expert local guides</h3><p>Certified driver-guides who grew up beside these parks and know exactly where the leopard rests at noon.</p></div>
+        <div class="feature reveal reveal-delay-2"><div class="ico"><svg><use href="#i-crown"/></svg></div><h3>Tailor-made, every time</h3><p>Change lodges, add nights or a beach finale. Our Trip Builder prices your ideas instantly.</p></div>
+        <div class="feature reveal"><div class="ico"><svg><use href="#i-lock"/></svg></div><h3>Transparent pricing</h3><p>Clear per-person rates, published seasons and group discounts. Park fees included — no surprises.</p></div>
+        <div class="feature reveal reveal-delay-1"><div class="ico"><svg><use href="#i-shield"/></svg></div><h3>Safety &amp; health first</h3><p>Flying Doctors evacuation cover available, first-aid trained guides and honest pre-travel health advice.</p></div>
+        <div class="feature reveal reveal-delay-2"><div class="ico"><svg><use href="#i-leaf"/></svg></div><h3>Responsible travel</h3><p>We support community-run conservancies and local employment so your safari protects the wild it visits.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow">Meet the locals</span><h2>The Big Five &amp; beyond</h2></div>
+        <p>Hover or tap a card to learn where and how to see each animal.</p>
+      </div>
+      <div class="wild-grid" id="wildGrid"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow">Plan your timing</span><h2>Best time to visit</h2></div>
+        <p>Click a month to highlight it. Green means prime game viewing; sand means the rains.</p>
+      </div>
+      <div class="heat-wrap reveal"><table class="heat" id="heatTable"></table></div>
+      <div class="legend"><span><i style="background:#3f8a5c"></i>Excellent</span><span><i style="background:#a9c98a"></i>Good</span><span><i style="background:#e2c9a0"></i>Rainy / low season (lower rates)</span></div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow">Moments from the wild</span><h2>Safari gallery</h2></div>
+        <p>Tap any image to open the full-screen viewer. Use your arrow keys to browse.</p>
+      </div>
+      <div class="masonry" id="gallery"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:900px">
+      <div class="section-head reveal"><div><span class="eyebrow">Good to know</span><h2>Frequently asked questions</h2></div></div>
+      <div class="faq-list" id="homeFaq"></div>
+      <p style="margin-top:20px"><a class="link-arrow" href="#/travel-info">All travel information <svg><use href="#i-arrow"/></svg></a></p>
+    </div>
+  </section>
+</section>
+
+<!-- ================= TOURS LIST ================= -->
+<section class="view" data-view="tours">
+  <div class="page-hero">
+    <img id="toursHeroImg" src="assets/img/lion-walk.jpg" alt="">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/">Home</a> / <span>Safaris</span></div>
+      <h1 id="toursTitle">All safaris</h1>
+      <p id="toursDesc">Private Kenya, Tanzania and Uganda safaris with instant pricing. Filter, compare and save your favourites.</p>
+    </div>
+  </div>
+  <div class="section" style="padding-top:50px">
+    <div class="container tours-layout">
+      <aside class="filters" id="filters" aria-label="Filters">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>Refine</strong>
+          <button class="btn btn-ghost btn-sm" id="resetFilters">Reset</button>
+        </div>
+        <div class="filter-search"><svg><use href="#i-search"/></svg><input type="search" id="fSearch" placeholder="Search parks, animals…" aria-label="Search safaris"></div>
+        <div><h4>Collection</h4><div class="chips" id="fCats"></div></div>
+        <div><h4>Experiences</h4><div class="chips" id="fTags"></div></div>
+        <div class="range-wrap"><h4>Max duration</h4><input type="range" id="fDays" min="1" max="10" value="10"><output id="fDaysOut">Up to 10 days</output></div>
+        <div class="range-wrap"><h4>Max price per person</h4><input type="range" id="fPrice" min="100" max="8000" step="100" value="8000"><output id="fPriceOut"></output></div>
+        <button class="btn btn-gold filters-toggle" id="applyFilters">Show results</button>
+      </aside>
+      <div>
+        <div class="results-bar">
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <button class="btn btn-ghost btn-sm filters-toggle" id="openFilters"><svg><use href="#i-filter"/></svg> Filters</button>
+            <strong id="resultCount"></strong>
+          </div>
+          <label><span class="sr-only">Sort by</span>
+            <select id="fSort">
+              <option value="pop">Sort: Recommended</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+              <option value="days-asc">Duration: shortest</option>
+              <option value="days-desc">Duration: longest</option>
+            </select>
+          </label>
+        </div>
+        <div class="tour-grid" id="tourGrid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TOUR DETAIL ================= -->
+<section class="view" data-view="tour" id="tourView"></section>
+
+<!-- ================= TRIP BUILDER ================= -->
+<section class="view" data-view="builder">
+  <div class="page-hero">
+    <img src="assets/img/acacia.jpg" alt="">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/">Home</a> / <span>Trip Builder</span></div>
+      <h1>Design your own safari</h1>
+      <p>Pick parks, set nights, choose your style — watch your route draw itself on the map and your price update live.</p>
+    </div>
+  </div>
+  <div class="section" style="padding-top:50px">
+    <div class="container builder">
+      <div class="builder-steps">
+        <div class="bstep">
+          <h3><span class="n">1</span> Choose your parks</h3>
+          <p class="muted">Tap to add — they'll be visited in the order you choose. Reorder in the summary.</p>
+          <div class="park-picker" id="parkPicker"></div>
+        </div>
+        <div class="bstep">
+          <h3><span class="n">2</span> Your safari style</h3>
+          <div class="option-cards" id="tierCards">
+            <button class="option-card" data-tier="budget"><strong>Classic camping</strong><span>Comfortable tented camps, shared facilities in places.</span></button>
+            <button class="option-card active" data-tier="midrange"><strong>Mid-range lodges</strong><span>Lodges &amp; tented camps with en-suite rooms and pools.</span></button>
+            <button class="option-card" data-tier="luxury"><strong>Luxury</strong><span>Boutique camps, prime locations, exceptional service.</span></button>
+          </div>
+        </div>
+        <div class="bstep">
+          <h3><span class="n">3</span> Travellers &amp; dates</h3>
+          <div class="form-grid-2">
+            <div class="form-row"><span class="form-label">Adults</span><div class="stepper" data-stepper="bAdults" data-min="1" data-max="12"><button type="button" data-d="-1" aria-label="Fewer adults">−</button><output id="bAdults">2</output><button type="button" data-d="1" aria-label="More adults">+</button></div></div>
+            <div class="form-row"><span class="form-label">Children (3–11)</span><div class="stepper" data-stepper="bKids" data-min="0" data-max="8"><button type="button" data-d="-1" aria-label="Fewer children">−</button><output id="bKids">0</output><button type="button" data-d="1" aria-label="More children">+</button></div></div>
+            <div class="form-row"><label for="bDate">Start date</label><input type="date" id="bDate"></div>
+            <div class="form-row"><label for="bStart">Start / end point</label><select id="bStart"><option value="nairobi">Nairobi</option><option value="arusha">Arusha</option><option value="entebbe">Entebbe</option><option value="diani">Kenya coast</option></select></div>
+          </div>
+        </div>
+      </div>
+      <aside class="builder-summary">
+        <h3>Your safari</h3>
+        <div class="builder-map" id="builderMap"></div>
+        <ul class="sel-list" id="selList"></ul>
+        <div class="quote-box" id="builderQuote"></div>
+        <details><summary style="cursor:pointer;font-weight:700;margin-bottom:10px">Day-by-day plan</summary><ul class="gen-itin" id="genItin"></ul></details>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-gold" style="flex:1" id="builderEnquire">Request this safari</button>
+          <button class="icon-btn" id="builderShare" title="Copy shareable link" aria-label="Copy shareable link"><svg><use href="#i-share"/></svg></button>
+          <button class="icon-btn" id="builderReset" title="Start over" aria-label="Start over"><svg><use href="#i-x"/></svg></button>
+        </div>
+        <p class="muted" style="font-size:.8rem;margin:12px 0 0">Indicative estimate in USD per the options selected. Your consultant confirms the final quote within 24 hours.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPLORE ================= -->
+<section class="view" data-view="explore">
+  <div class="page-hero">
+    <img src="assets/img/savanna-sunset.jpg" alt="">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/">Home</a> / <span>Explore</span></div>
+      <h1>Explore East Africa</h1>
+      <p>An interactive map of every park we visit, the Great Migration month by month, and when to go.</p>
+    </div>
+  </div>
+  <section class="section" style="padding-top:50px">
+    <div class="container">
+      <div class="section-head"><div><span class="eyebrow">Interactive map</span><h2>Destinations</h2></div><div class="tabs" id="countryTabs"></div></div>
+      <div class="map-shell">
+        <div class="map-wrap"><div class="map" id="exploreMap"></div></div>
+        <div class="map-panel" id="placePanel"></div>
+      </div>
+    </div>
+  </section>
+  <section class="section section-alt">
+    <div class="container">
+      <div class="migration-ui">
+        <div>
+          <span class="eyebrow">Great Migration</span>
+          <h2>Where are the herds?</h2>
+          <p class="muted">Approximate herd location by month. Timing shifts each year with the rains — your guide tracks the herds daily.</p>
+          <div class="month-slider"><input type="range" min="0" max="11" value="7" id="migRange" aria-label="Month"><div class="month-ticks" id="migTicks"></div></div>
+          <div class="mig-card" id="migCard"></div>
+          <button class="btn btn-dark btn-sm play-btn" id="migPlay" style="margin-top:16px"><svg><use href="#i-play"/></svg> Play year</button>
+        </div>
+        <div class="mig-map" id="migMap"></div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><span class="eyebrow">Plan your timing</span><h2>Month-by-month guide</h2></div></div>
+      <div class="heat-wrap"><table class="heat" id="heatTable2"></table></div>
+      <div class="legend"><span><i style="background:#3f8a5c"></i>Excellent</span><span><i style="background:#a9c98a"></i>Good</span><span><i style="background:#e2c9a0"></i>Rainy / low season</span></div>
+    </div>
+  </section>
+</section>
+
+<!-- ================= TRAVEL INFO ================= -->
+<section class="view" data-view="travel-info">
+  <div class="page-hero">
+    <img src="assets/img/kilimanjaro.jpg" alt="">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/">Home</a> / <span>Travel Info</span></div>
+      <h1>Travel information</h1>
+      <p>Health, visas, packing and booking terms — everything to arrive prepared.</p>
+    </div>
+  </div>
+  <div class="section" style="padding-top:40px">
+    <div class="container">
+      <div class="info-tabs tabs" id="infoTabs">
+        <button class="tab active" data-panel="health">Health &amp; vaccines</button>
+        <button class="tab" data-panel="visas">Visas &amp; entry</button>
+        <button class="tab" data-panel="packing">Packing list</button>
+        <button class="tab" data-panel="faq">FAQ</button>
+        <button class="tab" data-panel="terms">Booking terms</button>
+      </div>
+
+      <div class="info-panel active" data-panel="health">
+        <h2>Stay healthy on safari</h2>
+        <p class="lead">Practical, evidence-based guidance in line with current CDC and WHO travel-health recommendations.</p>
+        <div class="notice"><svg><use href="#i-info"/></svg><div><strong>This is general information, not personal medical advice.</strong> Requirements change and depend on your health, medicines, pregnancy and route. Book a travel-health consultation 4–8 weeks before departure and confirm entry rules with official sources (CDC Travelers' Health, WHO, your national travel-health service).</div></div>
+        <div class="health-grid" id="healthGrid"></div>
+
+        <div class="pill-tracker">
+          <h3><svg style="width:22px;vertical-align:-4px;color:var(--gold)"><use href="#i-pill"/></svg> Malaria tablet planner</h3>
+          <p class="muted">Enter your travel dates and the tablet your doctor prescribed — we'll show exactly when to start and stop, and you can add daily reminders to your calendar.</p>
+          <div class="row">
+            <div class="form-row" style="margin:0"><label for="ptArrive">Enter malaria area</label><input type="date" id="ptArrive"></div>
+            <div class="form-row" style="margin:0"><label for="ptLeave">Leave malaria area</label><input type="date" id="ptLeave"></div>
+            <div class="form-row" style="margin:0"><label for="ptDrug">Prescribed tablet</label>
+              <select id="ptDrug">
+                <option value="ap">Atovaquone‑proguanil (daily)</option>
+                <option value="doxy">Doxycycline (daily)</option>
+                <option value="meflo">Mefloquine (weekly)</option>
+              </select></div>
+            <button class="btn btn-gold" id="ptCalc">Plan doses</button>
+          </div>
+          <div class="pill-result" id="ptResult"></div>
+        </div>
+      </div>
+
+      <div class="info-panel" data-panel="visas">
+        <h2>Visas &amp; entry requirements</h2>
+        <div class="visa-grid">
+          <div class="visa-card"><div class="flag">🇰🇪</div><h3>Kenya</h3><ul><li>Most visitors apply online for an <strong>Electronic Travel Authorisation (eTA)</strong> before travel — allow at least 3 working days.</li><li>Passport valid 6+ months with blank pages.</li><li>Yellow fever vaccination recommended; certificate needed if arriving from a risk country.</li></ul></div>
+          <div class="visa-card"><div class="flag">🇹🇿</div><h3>Tanzania</h3><ul><li>Apply for an <strong>e-Visa</strong> via the official Tanzania Immigration portal before travel.</li><li>Yellow fever certificate required if arriving from (or transiting 12+ hours in) a risk country — including Kenya.</li></ul></div>
+          <div class="visa-card"><div class="flag">🇺🇬</div><h3>Uganda</h3><ul><li>Apply for an <strong>e-Visa</strong> online, or the <strong>East Africa Tourist Visa</strong> (Kenya · Uganda · Rwanda).</li><li>Yellow fever certificate required for all travellers aged 1+.</li><li>Gorilla permits (US$800) are included in our Uganda tours.</li></ul></div>
+        </div>
+        <div class="notice"><svg><use href="#i-info"/></svg><div>Entry rules change frequently. Always confirm on the official government website for your nationality before booking flights. Use only official portals — never pay third-party "visa agents".</div></div>
+      </div>
+
+      <div class="info-panel" data-panel="packing">
+        <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap">
+          <div><h2>Interactive packing list</h2><p class="muted" style="margin:0">Tick items as you pack — your progress is saved on this device.</p></div>
+          <div style="display:flex;gap:8px"><button class="btn btn-ghost btn-sm" id="packReset">Clear</button><button class="btn btn-dark btn-sm" onclick="window.print()"><svg><use href="#i-print"/></svg> Print</button></div>
+        </div>
+        <div class="progress"><div id="packProgress" style="width:0"></div></div>
+        <div class="pack-grid" id="packGrid"></div>
+      </div>
+
+      <div class="info-panel" data-panel="faq">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-search filter-search"><svg><use href="#i-search"/></svg><input type="search" id="faqSearch" placeholder="Search questions…" aria-label="Search FAQ"></div>
+        <div class="faq-list" id="fullFaq"></div>
+      </div>
+
+      <div class="info-panel" data-panel="terms">
+        <h2>Booking terms (summary)</h2>
+        <div class="inc-grid">
+          <div class="inc-box"><h4>Reservations &amp; payment</h4><ul>
+            <li><svg><use href="#i-check"/></svg><span>A <span data-cfg-text="depositPercent"></span>% deposit confirms your booking and secures lodges and permits.</span></li>
+            <li><svg><use href="#i-check"/></svg><span>The balance is due 45 days before arrival (bookings within 45 days are paid in full).</span></li>
+            <li><svg><use href="#i-check"/></svg><span>Card, bank transfer and M-Pesa accepted. Prices quoted in USD.</span></li></ul></div>
+          <div class="inc-box"><h4>Cancellations &amp; changes</h4><ul>
+            <li><svg><use href="#i-check"/></svg><span>Changes are free where suppliers allow, subject to availability.</span></li>
+            <li><svg><use href="#i-check"/></svg><span>Cancellation charges scale with notice given; gorilla permits are non-refundable.</span></li>
+            <li><svg><use href="#i-check"/></svg><span>Comprehensive travel insurance is strongly recommended.</span></li></ul></div>
+        </div>
+        <p class="muted" style="margin-top:16px">Full terms are provided with your quotation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="view" data-view="about">
+  <div class="page-hero">
+    <img src="assets/img/elephants-pair.jpg" alt="">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/">Home</a> / <span>About</span></div>
+      <h1>About Crownland Safaris Tour</h1>
+      <p>A Nairobi-based safari company built on one idea: every guest deserves to be treated like royalty in the wild.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container split">
+      <div class="img-stack reveal">
+        <img src="assets/img/lion-cub.jpg" alt="Lion with cub resting in the grass" loading="lazy">
+        <img src="assets/img/hero-jeep.jpg" alt="Safari vehicle at sunset" loading="lazy">
+        <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><circle cx="60" cy="60" r="58" fill="#1e3a2b"/><text font-size="11" font-weight="700" letter-spacing="3" fill="#e8bf62"><textPath href="#circ">CROWNLAND · SAFARIS · TOUR · KENYA ·</textPath></text><path d="M44 66l5 4 4-8 7 6 7-6 4 8 5-4-2 9H46z" fill="#e8bf62"/></svg>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Our story</span>
+        <h2>Royal journeys through wild Africa</h2>
+        <p class="lead">Crownland Safaris Tour designs private safaris across Kenya, Tanzania and Uganda — from the Masai Mara and Amboseli to the Serengeti, Ngorongoro and the gorilla forests of Bwindi.</p>
+        <p class="muted">We believe the best safaris are personal. That's why every trip runs in a private vehicle with your own guide, why our prices are published openly, and why our team answers you personally — before, during and after your journey.</p>
+        <div class="values">
+          <div><svg><use href="#i-crown"/></svg><div><strong>Royal service</strong><span>Personal consultant from first message to farewell.</span></div></div>
+          <div><svg><use href="#i-shield"/></svg><div><strong>Safety</strong><span>Well-maintained 4x4s and trained guides.</span></div></div>
+          <div><svg><use href="#i-leaf"/></svg><div><strong>Conservation</strong><span>We favour eco-rated camps and conservancies.</span></div></div>
+          <div><svg><use href="#i-users"/></svg><div><strong>Local expertise</strong><span>Kenyan-owned, Kenyan-guided.</span></div></div>
+        </div>
+        <a href="#/contact" class="btn btn-gold">Talk to our team <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="view" data-view="contact">
+  <div class="page-hero">
+    <img src="assets/img/buffalo-sunset.jpg" alt="">
+    <div class="container">
+      <div class="breadcrumbs"><a href="#/">Home</a> / <span>Contact</span></div>
+      <h1>Let's plan your safari</h1>
+      <p>We reply to every enquiry within 24 hours — usually much sooner.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container contact-grid">
+      <div>
+        <div class="contact-cards">
+          <a class="contact-card" data-cfg-href="tel" href="#"><span class="ico"><svg><use href="#i-phone"/></svg></span><span><small>Call us</small><strong data-cfg-text="phonePrimary"></strong><br><span class="muted" data-cfg-text="phoneSecondary"></span></span></a>
+          <a class="contact-card" data-cfg-href="whatsapp" href="#" target="_blank" rel="noopener"><span class="ico"><svg><use href="#i-whatsapp"/></svg></span><span><small>WhatsApp</small><strong>Chat with a safari expert</strong></span></a>
+          <a class="contact-card" data-cfg-href="mailto" href="#"><span class="ico"><svg><use href="#i-mail"/></svg></span><span><small>Email</small><strong data-cfg-text="email"></strong></span></a>
+          <div class="contact-card"><span class="ico"><svg><use href="#i-pin"/></svg></span><span><small>Office</small><strong data-cfg-text="address"></strong><br><span class="muted" data-cfg-text="officeHours"></span></span></div>
+        </div>
+        <div class="form-card" style="margin-top:20px">
+          <h3><svg style="width:22px;vertical-align:-4px;color:var(--gold)"><use href="#i-lock"/></svg> Secure online payments</h3>
+          <p class="muted" style="font-size:.92rem">Pay your deposit or balance securely online once you have your confirmed invoice.</p>
+          <div class="pay-badges"><span>VISA</span><span>Mastercard</span><span>M-PESA</span><span>Bank transfer</span><span>PayPal</span></div>
+          <button class="btn btn-dark btn-block" style="margin-top:16px" id="payBtn"><svg><use href="#i-lock"/></svg> Pay deposit online</button>
+        </div>
+      </div>
+      <form class="form-card" id="contactForm" novalidate>
+        <h2 style="font-size:1.8rem">Send an enquiry</h2>
+        <div class="form-grid-2">
+          <div class="form-row"><label for="cName">Full name *</label><input id="cName" name="name" required autocomplete="name"></div>
+          <div class="form-row"><label for="cEmail">Email *</label><input id="cEmail" name="email" type="email" required autocomplete="email"></div>
+          <div class="form-row"><label for="cPhone">Phone / WhatsApp</label><input id="cPhone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="form-row"><label for="cCountry">Country</label><input id="cCountry" name="country" autocomplete="country-name"></div>
+          <div class="form-row"><label for="cDate">Travel date</label><input id="cDate" name="date" type="date"></div>
+          <div class="form-row"><label for="cPax">Travellers</label><input id="cPax" name="travellers" type="number" min="1" value="2"></div>
+        </div>
+        <div class="form-row"><label for="cTour">Interested in</label><select id="cTour" name="tour"><option value="">A tailor-made safari</option></select></div>
+        <div class="form-row"><label for="cMsg">Tell us about your dream safari *</label><textarea id="cMsg" name="message" rows="5" required></textarea></div>
+        <button class="btn btn-gold btn-block" type="submit"><svg><use href="#i-send"/></svg> Send enquiry</button>
+        <p class="muted" style="font-size:.8rem;margin:12px 0 0">We'll only use your details to reply to your enquiry.</p>
+      </form>
+    </div>
+  </section>
+</section>
+
+</main>
+
+<!-- ================= NEWSLETTER + FOOTER ================= -->
+<div class="container" style="margin-top:40px">
+  <div class="newsletter">
+    <div><h2>Safari inspiration, monthly</h2><p>Migration updates, seasonal offers and insider tips. No spam — unsubscribe anytime.</p></div>
+    <form class="nl-form" id="nlForm"><label class="sr-only" for="nlEmail">Email</label><input id="nlEmail" type="email" placeholder="Your email address" required><button class="btn btn-gold btn-sm" type="submit">Subscribe</button></form>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#/" class="logo"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1e3a2b"/><circle cx="32" cy="38" r="13" fill="#d4a443" opacity=".9"/><path d="M14 45h36" stroke="#0f1a12" stroke-width="3"/><path d="M19 22l5 4 4-8 4 7 4-7 4 8 5-4-2 9H21z" fill="#d4a443"/></svg><span class="logo-text"><strong>Crownland</strong><small>Safaris Tour</small></span></a>
+        <p style="margin-top:18px;font-size:.93rem">Private safaris across Kenya, Tanzania and Uganda — designed around you, guided by locals who love this land.</p>
+        <div class="socials" id="socials"></div>
+      </div>
+      <div><h4>Safaris</h4><ul id="footerCats"></ul></div>
+      <div><h4>Plan</h4><ul>
+        <li><a href="#/builder">Trip Builder</a></li>
+        <li><a href="#/explore">Migration tracker</a></li>
+        <li><a href="#" data-open-quiz>Safari quiz</a></li>
+        <li><a href="#/travel-info">Health &amp; visas</a></li>
+        <li><a href="#/travel-info?tab=packing">Packing list</a></li>
+        <li><a href="#/about">About us</a></li></ul></div>
+      <div><h4>Contact</h4><ul>
+        <li><a data-cfg-href="tel" href="#" data-cfg-text="phonePrimary"></a></li>
+        <li><a data-cfg-href="tel2" href="#" data-cfg-text="phoneSecondary"></a></li>
+        <li><a data-cfg-href="mailto" href="#" data-cfg-text="email"></a></li>
+        <li data-cfg-text="address"></li>
+        <li><a href="#/contact" class="btn btn-gold btn-sm" style="margin-top:8px">Enquire now</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Crownland Safaris Tour. All rights reserved.</span>
+      <span>Photos: Unsplash contributors; mountain gorilla photos by Giles Laurent (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>); Lake Nakuru flamingos via Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>).</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= OVERLAYS ================= -->
+<div class="compare-bar" id="compareBar"><div class="thumbs" id="compareThumbs"></div><strong id="compareLabel"></strong><button class="clear" id="compareClear">Clear</button><button class="btn btn-gold btn-sm" id="compareOpen"><svg><use href="#i-compare"/></svg> Compare</button></div>
+
+<div class="drawer" id="savedDrawer" aria-hidden="true"><div class="scrim" data-close-drawer></div><div class="panel"><div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">Saved safaris</h3><button class="icon-btn" data-close-drawer aria-label="Close"><svg><use href="#i-x"/></svg></button></div><div id="savedList" style="margin-top:18px"></div></div></div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-scrim" data-close-modal></div><div class="modal-card" id="modalCard"><button class="icon-btn modal-close" data-close-modal aria-label="Close"><svg><use href="#i-x"/></svg></button><div id="modalContent"></div></div></div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Image viewer"><img id="lbImg" alt=""><button class="lb-btn lb-close" data-lb="close" aria-label="Close"><svg><use href="#i-x"/></svg></button><button class="lb-btn lb-prev" data-lb="prev" aria-label="Previous"><svg><use href="#i-left"/></svg></button><button class="lb-btn lb-next" data-lb="next" aria-label="Next"><svg><use href="#i-right"/></svg></button><span class="lb-count" id="lbCount"></span></div>
+
+<div class="chat" id="chat" aria-live="polite">
+  <div class="chat-head"><span class="avatar"><svg><use href="#i-crown"/></svg></span><div><strong>Crownland Concierge</strong><small>Automated assistant · replies instantly</small></div><button id="chatClose" aria-label="Close chat"><svg style="width:22px;height:22px"><use href="#i-x"/></svg></button></div>
+  <div class="chat-log" id="chatLog"></div>
+  <div class="chat-chips" id="chatChips"></div>
+  <form class="chat-form" id="chatForm"><input id="chatInput" placeholder="Ask about prices, migration, visas…" autocomplete="off" aria-label="Message"><button aria-label="Send"><svg><use href="#i-send"/></svg></button></form>
+</div>
+
+<div class="fab-stack">
+  <button class="fab fab-top" id="toTop" aria-label="Back to top"><svg><use href="#i-up"/></svg></button>
+  <a class="fab fab-wa" data-cfg-href="whatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp us"><svg><use href="#i-whatsapp"/></svg></a>
+  <button class="fab fab-chat" id="chatOpen" aria-label="Open chat assistant"><svg><use href="#i-chat"/></svg><span class="ping"></span></button>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+<script src="js/config.js" defer></script>
+<script src="js/data.js" defer></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>
