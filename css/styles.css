@@ -798,3 +798,7 @@ input[type="range"] { width: 100%; accent-color: var(--gold); }
   .view { display: none !important; }
   .view.active { display: block !important; }
 }
+
+/* Long contact values (e.g. email) wrap instead of overflowing on small screens */
+.contact-grid > *, .contact-card > span:last-child, .footer-grid > *, .newsletter > * { min-width: 0; }
+.contact-card strong, .footer-grid a, .topbar-links span { overflow-wrap: anywhere; }
